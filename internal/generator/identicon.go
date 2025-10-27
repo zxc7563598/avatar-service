@@ -16,7 +16,7 @@ func GenerateIdenticon(seed string, size int) ([]byte, error) {
 	margin := 25
 	grid := 7
 	usableSize := size - 2*margin
-	cellSize := usableSize / grid // 整数
+	cellSize := usableSize / grid
 	dc := gg.NewContext(size, size)
 	bg := color.RGBA{255, 255, 255, 255}
 	dc.SetColor(bg)
@@ -33,10 +33,8 @@ func GenerateIdenticon(seed string, size int) ([]byte, error) {
 			idx := x*grid + y
 			if hash[idx]%2 == 0 {
 				dc.SetColor(fg)
-				// 左半边
 				dc.DrawRectangle(float64(margin+x*cellSize), float64(margin+y*cellSize), float64(cellSize), float64(cellSize))
 				dc.Fill()
-				// 镜像右半边
 				dc.DrawRectangle(float64(margin+(grid-1-x)*cellSize), float64(margin+y*cellSize), float64(cellSize), float64(cellSize))
 				dc.Fill()
 			}

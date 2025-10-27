@@ -15,9 +15,7 @@ func main() {
 	flag.StringVar(&port, "port", "8080", "服务器端口")
 	flag.StringVar(&port, "p", "8080", "服务器端口（简写）")
 	flag.Parse()
-
 	r := gin.Default()
-
 	// 缓存实例
 	memCache := cache.NewMemoryCache()
 	r.GET("/avatar", func(c *gin.Context) {
