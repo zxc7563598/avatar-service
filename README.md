@@ -48,8 +48,8 @@ go run main.go --port 8080
 3. 打包后运行：
 
 ```bash
-go build
-./avatar-service --port=8080
+go build -o app
+./app --port=8080
 ```
 
 ## API 使用

@@ -21,17 +21,17 @@ jobs:
       - name: Build binary
         run: |
           mkdir -p dist
-          GOOS=linux GOARCH=amd64 go build -o dist/avatar-service main.go
-          echo "✅ Build complete: dist/avatar-service"
+          GOOS=linux GOARCH=amd64 go build -o dist/app main.go
+          echo "✅ Build complete: dist/app"
 
       - name: Package binary
         run: |
           cd dist
-          tar -czf avatar-service-linux-amd64.tar.gz avatar-service
-          echo "📦 Packaged: dist/avatar-service-linux-amd64.tar.gz"
+          tar -czf app-linux-amd64.tar.gz app
+          echo "📦 Packaged: dist/app-linux-amd64.tar.gz"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: avatar-service-linux-amd64
-          path: dist/avatar-service-linux-amd64.tar.gz
+          name: app-linux-amd64
+          path: dist/app-linux-amd64.tar.gz
