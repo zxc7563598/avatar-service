@@ -20,14 +20,13 @@ func GeneratePixelAvatar(seed string, size int) ([]byte, error) {
 	grid := 8
 	cell := size / grid
 	dc := gg.NewContext(size, size)
-	// 背景颜色
 	bg := color.RGBA{255, 255, 255, 255}
 	dc.SetColor(bg)
 	dc.Clear()
 	for x := 0; x < grid; x++ {
 		for y := 0; y < grid; y++ {
 			rv := r.Intn(100)
-			if rv < 60 { // 控制空白率
+			if rv < 60 {
 				col := color.RGBA{
 					R: uint8(100 + r.Intn(155)),
 					G: uint8(100 + r.Intn(155)),
